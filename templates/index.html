@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background-color: rgb(20, 20, 21);
+        color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        margin-left: 500px;
+        /* margin-right: 250px; */
+      }
+      /* for .form: */
+      /* style="display: flex; flex-direction: row; justify-content: space-around; align-items: center;" */
+    </style>
+  </head>
+  <body>
+    <h1 style="color: olivedrab;">&lt;Coding Problems&gt;</h1>
+    <div class="form">
+      <form method="POST">
+        {{ form.hidden_tag() }} {{ form.search.label }} {{ form.search() }} {{
+        form.submit() }}
+      </form>
+    </div>
+    <br>
+    <div>
+      {% for result in results %}
+      <a href="{{ result['Question Link'] }}">{{ result['Question'] }}</a>
+      <br>
+      <br>
+      <!-- <p>Score: {{ result['Score'] }}</p> -->
+      {% endfor %}
+    </div>
+  </body>
+</html>
